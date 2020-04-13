@@ -1,17 +1,21 @@
 class Vehicle {
   // Setup object
-  constructor (name,iGotThisMany = 4,vRoom) {
+  constructor (name,iGotThisMany = 4,vRoom = 180) {
     //instance properties
     this.name = name;
     this.wheelCount = iGotThisMany;
     this./*my current obj*/maxSpeed = vRoom; 
     this.speed = 0;
+    
   }
   accelerate(){
-    this.speed = this.maxSpeed / 3 + this.speed; //increasing speed and reassigning
+    if(this.speed < this.maxSpeed) {
+      this.speed = this.maxSpeed / 3 + this.speed; //increasing speed and reassigning
+  }
+  }
+  }
     
-    }
-}
+
   
 
 let myVehicle = new Vehicle();// calling my constructor func
@@ -40,8 +44,9 @@ class Ferrari extends Car {
   }
 
   accelerate() {
-    this.speed = this.maxSpeed / 2 + this.speed; 
-    this.maxSpeed = 180;//eh??
+    if(this.speed < this.maxSpeed){
+    this.speed = this.maxSpeed / 2 + this.speed;
+    } 
   }
 }
 
